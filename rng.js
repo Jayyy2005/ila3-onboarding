@@ -3,21 +3,36 @@ function getRandomInt(min, max) {
   }
   
   const randomNumber = getRandomInt(1, 100);
-  console.log(randomNumber);
-  //Von ChatGPT
+  
+  function submitText() {
+    const number = document.getElementById("myInput").value;
+  
+    if (number == randomNumber) {
+      alert("You won! The correct number was: " + number);
+  
+      const newButton = document.createElement('button');
+      newButton.id = 'Replaybutton';
+      newButton.textContent = 'Play Again';
+      document.body.appendChild(newButton);
+    //https://www.altcademy.com/blog/how-to-create-a-button-in-javascript/
 
-
-function submitText() {
-
-    const number = document.getElementById('myInput').value;
-    alert(number);
-    if(number == randomNumber){
-        alert("GGS");
-    }else if(number != randomNumber){
-        if(number > randomNumber){
-            alert("Dein Guess ist zu hoch");
-        }else{
-            alert("Dein Guess ist zu tief");
-        }
+      const button = document.querySelector('#Replaybutton');
+      button.addEventListener('click', onButtonClick);
+  
+    } else {
+      if (number > randomNumber) {
+        alert("Your guess was too high!");
+      } else {
+        alert("Your guess was too low!");
+      }
     }
-}
+  }
+  
+  function onButtonClick() {
+    const inputBox = document.getElementById("myInput");
+    inputBox.value = '';
+    const button = document.querySelector('#Replaybutton');
+    button.remove();
+    location.reload();
+  }
+  
