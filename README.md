@@ -1,3 +1,3 @@
-ILA3 Onboarding
+------------- ILA3 Onboarding -------------
 
 Sanjay Raviraj, Manuel Greub, Alberto Manser
